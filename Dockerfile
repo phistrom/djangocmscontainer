@@ -2,10 +2,8 @@ FROM python:3.6
 LABEL description="Django CMS Base Image for MySQL" version="3.4.5"
 
 # for django-compressor
-RUN mkdir -p /usr/share/man/man1 \
-    && apt-get update && apt-get install --no-install-recommends -y \
+RUN apt-get update && apt-get install --no-install-recommends -y \
         closure-compiler \
-        libmysqlclient-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # install Django CMS and a lot of extra Django plugins like compressor, storages, and redis
